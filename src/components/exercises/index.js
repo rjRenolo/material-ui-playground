@@ -5,7 +5,8 @@ import {
   Typography,
   List,
   ListItemText,
-  ListItem
+  ListItem,
+  Divider
 } from '@material-ui/core';
 
 const styles = {
@@ -22,6 +23,9 @@ const index = ({ exercises }) => {
       <Grid item sm>
         {/* list of exercises */}
         <Paper style={styles.Paper}>
+          <Typography variant="h2">Exercise List</Typography>
+          <Divider style={{ marginBottom: '8px', background: 'black' }} />
+
           {exercises.map(([category, exercises]) => {
             return (
               <Fragment key={category}>
@@ -41,6 +45,7 @@ const index = ({ exercises }) => {
                     );
                   })}
                 </List>
+                <Divider style={{ marginBottom: '4px' }} />
               </Fragment>
             );
           })}
