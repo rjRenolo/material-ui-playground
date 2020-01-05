@@ -18,7 +18,16 @@ const styles = {
   }
 };
 
-const index = ({ exercises }) => {
+const index = ({
+  exercises,
+  categ,
+  exercise: {
+    id,
+    title = 'Please Select an Exercise in the list.',
+    description
+  },
+  onSelect
+}) => {
   //   console.log(exercises);
   return (
     <Grid container>
@@ -29,7 +38,7 @@ const index = ({ exercises }) => {
           <Divider style={{ marginBottom: '8px', background: 'black' }} />
 
           {exercises.map(([category, exercises]) => {
-            return (
+            return !categ || categ === category ? (
               <Fragment key={category}>
                 <Typography
                   variant="h6"
@@ -41,7 +50,11 @@ const index = ({ exercises }) => {
                   {exercises.map(exercise => {
                     // console.log(exercise);
                     return (
-                      <ListItem key={exercise.id} button>
+                      <ListItem
+                        key={exercise.id}
+                        button
+                        onClick={() => onSelect(exercise.id)}
+                      >
                         <ListItemText>{exercise.title}</ListItemText>
                       </ListItem>
                     );
@@ -49,7 +62,7 @@ const index = ({ exercises }) => {
                 </List>
                 <Divider style={{ marginBottom: '4px' }} />
               </Fragment>
-            );
+            ) : null;
           })}
         </Paper>
       </Grid>
@@ -58,9 +71,8 @@ const index = ({ exercises }) => {
         <Paper style={styles.Paper}>
           <Typography variant="h2">Exercise Details</Typography>
           <Divider style={{ marginBottom: '8px', background: 'black' }} />
-          <Typography variant="subtitle1">
-            Please Select an Exercise in the List
-          </Typography>
+          <Typography variant="h6">{title}</Typography>
+          <Typography variant="subtitle1">{description}</Typography>
         </Paper>
       </Grid>
     </Grid>
