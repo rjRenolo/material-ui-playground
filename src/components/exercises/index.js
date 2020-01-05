@@ -12,14 +12,16 @@ import {
 const styles = {
   Paper: {
     padding: '20px',
-    marginBottom: '10px'
+    marginBottom: '10px',
+    height: '80vh',
+    overflowY: 'auto'
   }
 };
 
 const index = ({ exercises }) => {
   //   console.log(exercises);
   return (
-    <Grid container spacing={2}>
+    <Grid container>
       <Grid item sm>
         {/* list of exercises */}
         <Paper style={styles.Paper}>
@@ -53,7 +55,13 @@ const index = ({ exercises }) => {
       </Grid>
 
       <Grid item sm>
-        <Paper style={styles.Paper}>Left Panel</Paper>
+        <Paper style={styles.Paper}>
+          <Typography variant="h2">Exercise Details</Typography>
+          <Divider style={{ marginBottom: '8px', background: 'black' }} />
+          <Typography variant="subtitle1">
+            Please Select an Exercise in the List
+          </Typography>
+        </Paper>
       </Grid>
     </Grid>
   );
