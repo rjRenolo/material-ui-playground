@@ -7,7 +7,7 @@ const Footer = ({ muscles }) => {
       <Tabs value={0} indicatorColor="primary" textColor="primary" centered>
         <Tab label="All" />
         {muscles.map(categ => (
-          <Tab label={categ} />
+          <Tab key={categ} label={categ} />
         ))}
       </Tabs>
     </Paper>
