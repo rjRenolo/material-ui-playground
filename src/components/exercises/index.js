@@ -1,7 +1,5 @@
 import React from 'react';
-import { Grid } from '@material-ui/core';
-import LeftPane from './LeftPane';
-import RightPane from './RightPane';
+import { Grid, Paper } from '@material-ui/core';
 
 const styles = {
   Paper: {
@@ -10,15 +8,16 @@ const styles = {
   }
 };
 
-const index = () => {
+const index = ({ exercises }) => {
+  console.log(exercises);
   return (
     <Grid container>
       <Grid item sm>
-        <LeftPane styles={styles} />
+        <Paper style={styles.Paper}>Left Panel</Paper>
       </Grid>
 
       <Grid item sm>
-        <RightPane styles={styles} />
+        <Paper style={styles.Paper}>Left Panel</Paper>
       </Grid>
     </Grid>
   );
